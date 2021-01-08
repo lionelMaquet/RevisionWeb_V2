@@ -82,6 +82,7 @@ body {
 .center h2 {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    font-family:cursive;
 }
 
 .answers_container, .list_container {
@@ -91,7 +92,7 @@ body {
 
 .list_item {
     padding: 1rem 2rem;
-    background-color: darkblue;
+    background-color: lightseagreen;
     margin: 0.5rem;
     text-align:center;
 }
@@ -105,5 +106,19 @@ body {
     padding: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border:none;
+    background-color: white;
+    border: solid;
+    font-size: 1.4rem;
+    border-color: lightblue;
 }
+
+.add_element_form {
+    margin-top: 5rem;
+}
+
+.answer:hover {
+    background-color: cadetblue;
+    color: white;
+}
+
+
