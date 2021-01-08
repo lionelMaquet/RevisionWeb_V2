@@ -3,33 +3,44 @@
 @{
 }
 
-@foreach(var a in Model.question.Answers)
-{
-    <p>@a.Title</p>
-}
+<div class="center">
 
 
-@if (Model.isOwnUserQuestion == true)
-{
-    <form method="post" class="answer_form">
-
-        <input type="hidden" name="qid" value="@Model.qid" />
-        <div>
-            <label for="title">Proposition</label>
-            <input type="text" name="title">
-        </div>
-
-        <div>
-            <label for="details">Details</label>
-            <input type="text" name="details">
-        </div>
-
-        <div>
-            <label for="isRightAnswer">Is it the right answer ?</label>
-            <input type="checkbox" name="isRightAnswer" />
-        </div>
+    <h2>@Model.question.Title</h2>
 
 
-        <input type="submit" class="AddElementButton" value="Ajouter proposition">
-    </form>
-}
+    <div class="answers_container">
+        @foreach (var a in Model.question.Answers)
+        {
+            <button class="answer">@a.Title</button>
+        }
+    </div>
+
+
+    @if (Model.isOwnUserQuestion == true)
+    {
+        <form method="post" class="answer_form">
+
+            <input type="hidden" name="qid" value="@Model.qid" />
+            <div>
+                <label for="title">Proposition</label>
+                <input type="text" name="title">
+            </div>
+
+            <div>
+                <label for="details">Details</label>
+                <input type="text" name="details">
+            </div>
+
+            <div>
+                <label for="isRightAnswer">Is it the right answer ?</label>
+                <input type="checkbox" name="isRightAnswer" />
+            </div>
+
+
+            <input type="submit" class="AddElementButton" value="Ajouter proposition">
+        </form>
+    }
+</div>
+
+

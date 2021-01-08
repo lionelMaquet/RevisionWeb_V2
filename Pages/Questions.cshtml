@@ -3,24 +3,32 @@
 @{
 }
 
-@foreach (var q in Model.sub.Questions)
-{
-    <p>
-        <a href="/answers?qid=@q.Id">@q.Title</a>
-    </p>
-}
+<div class="center">
+
+    <h2>Choose a question : </h2>
+
+    <div class="list_container">
+        @foreach (var q in Model.sub.Questions)
+        {
+            <div class="list_item">
+                <a href="/answers?qid=@q.Id">@q.Title</a>
+            </div>
+        }
+    </div>
 
 
-@if (Model.isOwnUserSubject == true)
-{
-    <form method="post">
-        <input type="hidden" value="@Model.sid" />
-        <input type="text" name="title">
-        <input type="submit" class="AddElementButton" value="Ajouter question">
-    </form>
-}
+    @if (Model.isOwnUserSubject == true)
+    {
+        <form method="post">
+            <input type="hidden" value="@Model.sid" />
+            <input type="text" name="title">
+            <input type="submit" class="AddElementButton" value="Ajouter question">
+        </form>
+    }
 
-else
-{
-    <p>You are not the owner of this subject. You've got no rights but looking at it.</p>
-}
+    else
+    {
+        <p>You are not the owner of this subject. You've got no rights but looking at it.</p>
+    }
+
+</div>
