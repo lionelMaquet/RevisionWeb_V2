@@ -1,0 +1,35 @@
+﻿@page
+@model RevisionWebV2.Pages.AnswersModel
+@{
+}
+
+@foreach(var a in Model.question.Answers)
+{
+    <p>@a.Title</p>
+}
+
+
+@if (Model.isOwnUserQuestion == true)
+{
+    <form method="post" class="answer_form">
+
+        <input type="hidden" name="qid" value="@Model.qid" />
+        <div>
+            <label for="title">Proposition</label>
+            <input type="text" name="title">
+        </div>
+
+        <div>
+            <label for="details">Details</label>
+            <input type="text" name="details">
+        </div>
+
+        <div>
+            <label for="isRightAnswer">Is it the right answer ?</label>
+            <input type="checkbox" name="isRightAnswer" />
+        </div>
+
+
+        <input type="submit" class="AddElementButton" value="Ajouter proposition">
+    </form>
+}

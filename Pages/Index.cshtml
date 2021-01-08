@@ -1,0 +1,33 @@
+﻿@page
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <p>Hello, welcome to ReVision ! </p>
+        <p>You are currently not logged in.</p>
+        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+    }
+
+    else
+    {
+
+        @foreach (var m in Model.subjects)
+        {
+            <a href="/questions?sid=@m.Id">@m.Title</a>
+        }
+
+
+        <form method="post">
+            <input type="text" name="title">
+            <input type="submit" class="AddElementButton" value="Ajouter sujet">
+        </form>
+    }
+</div>
+
