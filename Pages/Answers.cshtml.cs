@@ -20,6 +20,7 @@ namespace RevisionWebV2.Pages
         public Question question;
         public Subject subject;
         public bool isOwnUserQuestion = false;
+        public int SubjectIdOfCurrentAnswer;
 
         public AnswersModel(ILogger<IndexModel> logger, ApplicationDbContext db)
         {
@@ -29,6 +30,7 @@ namespace RevisionWebV2.Pages
         public void OnGet(string qid)
         {
             this.qid = qid;
+            SubjectIdOfCurrentAnswer = Helper.getSubjectIdFromQuestionId(_db, int.Parse(qid));
             try
             {
                 question = _db.Questions.Where(x => x.Id.ToString() == qid).Include(x => x.Answers).First();
@@ -37,7 +39,7 @@ namespace RevisionWebV2.Pages
                 // No question with this id exists
             }
 
-            subject = Helper.getSubjecFromQuestionId(_db,int.Parse(qid));
+            subject = Helper.getSubjectFromQuestionId(_db,int.Parse(qid));
             if (subject.OwnerUsername == User.Identity.Name)
             {
                 isOwnUserQuestion = true;

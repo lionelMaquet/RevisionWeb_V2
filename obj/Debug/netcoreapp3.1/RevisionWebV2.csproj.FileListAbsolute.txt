@@ -202,3 +202,4 @@ C:\Users\lione\Desktop\Side Projects\RevisionWebV2\obj\Debug\netcoreapp3.1\Razor
 C:\Users\lione\Desktop\Side Projects\RevisionWebV2\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\lione\Desktop\Side Projects\RevisionWebV2\obj\Debug\netcoreapp3.1\Razor\Pages\Questions.cshtml.g.cs
 C:\Users\lione\Desktop\Side Projects\RevisionWebV2\obj\Debug\netcoreapp3.1\Razor\Pages\Answers.cshtml.g.cs
+C:\Users\lione\Desktop\Side Projects\RevisionWebV2\obj\Debug\netcoreapp3.1\Razor\Pages\Subjects.cshtml.g.cs

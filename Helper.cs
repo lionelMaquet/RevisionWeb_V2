@@ -13,7 +13,7 @@ namespace RevisionWeb
     {
         // NOT TESTED
 
-        static public Subject getSubjecFromQuestionId(ApplicationDbContext db, int questionId)
+        static public Subject getSubjectFromQuestionId(ApplicationDbContext db, int questionId)
         {
             Subject sub = db.Subjects.First(x => x.Questions.Count(x => x.Id == questionId) > 0);
             return sub;
@@ -23,25 +23,25 @@ namespace RevisionWeb
             int sid = db.Subjects.First(x => x.Questions.Count(x => x.Id == questionId) > 0).Id;
             return sid;
         }
-        /*
+        
+        /* 
         static public int getUserIdFromSubjectId(ApplicationDbContext db, int subjectId)
         {
             int uid = db.Users.First(x => x.Subjects.Count(x => x.Id == subjectId) > 0).Id;
             return uid;
         }
         */
-        /*
-        static public int getUserIdFromQuestionId(ApplicationDbContext db, int questionId)
+        
+        
+        static public string getUsernameFromQuestionId(ApplicationDbContext db, int questionId)
         {
-            int sid = getSubjectIdFromQuestionId(db, questionId);
-            int uid = getUserIdFromSubjectId(db, sid);
-            return uid;
+            string username = getSubjectFromQuestionId(db, questionId).OwnerUsername;
+            return username;
         }
-        */
+        
 
         static public void FlushDb(ApplicationDbContext db)
         {
-            
             db.Subjects.RemoveRange(db.Subjects);
             db.Questions.RemoveRange(db.Questions);
             db.Answers.RemoveRange(db.Answers);

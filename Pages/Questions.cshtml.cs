@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using RevisionWeb;
 using RevisionWebV2.Data;
 using RevisionWebV2.Data.Models;
 
@@ -18,6 +19,7 @@ namespace RevisionWebV2.Pages
         public bool isOwnUserSubject = false;
         public Subject sub;
         public string sid;
+        public string UsernameOfCurrentQuestion;
 
         public QuestionsModel(ILogger<IndexModel> logger, ApplicationDbContext db)
         {
@@ -28,7 +30,9 @@ namespace RevisionWebV2.Pages
         public void OnGet(string sid)
         {
             this.sid = sid;
+            
             sub = _db.Subjects.Where(x => x.Id.ToString() == sid).Include(x => x.Questions).First();
+            UsernameOfCurrentQuestion = sub.OwnerUsername;
 
             if (sub.OwnerUsername == User.Identity.Name)
             {
