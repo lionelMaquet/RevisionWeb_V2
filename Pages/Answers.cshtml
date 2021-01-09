@@ -12,9 +12,16 @@
     <div class="answers_container">
         @foreach (var a in Model.question.Answers)
         {
-            <button class="answer">@a.Title</button>
+            <button class="answer" data-isRightAnswer='@a.IsRightAnswer' data-details='@a.Details'>@a.Title</button>
         }
     </div>
+
+    <div class="details_container">
+        <p id="trueOrNot"></p>
+        <p id="answerDetails"></p>
+    </div>
+
+    
 
 
     @if (Model.isOwnUserQuestion == true)
@@ -23,18 +30,20 @@
 
             <input type="hidden" name="qid" value="@Model.qid" />
             <div>
-                <label for="title">Proposition</label>
-                <input type="text" name="title">
-            </div>
+                <div>
+                    <label for="title">Proposition</label>
+                    <input type="text" name="title">
+                </div>
 
-            <div>
-                <label for="details">Details</label>
-                <input type="text" name="details">
-            </div>
+                <div>
+                    <label for="details">Details</label>
+                    <input type="text" name="details">
+                </div>
 
-            <div>
-                <label for="isRightAnswer">Is it the right answer ?</label>
-                <input type="checkbox" name="isRightAnswer" />
+                <div>
+                    <label for="isRightAnswer">Is it the right answer ?</label>
+                    <input type="checkbox" name="isRightAnswer" />
+                </div>
             </div>
 
 
@@ -44,3 +53,25 @@
 </div>
 
 
+@section Scripts{
+    <script>
+        $('.answer').click(function () {
+            $('#trueOrNot').removeClass("wrong_answer")
+            $('#trueOrNot').removeClass("right_answer")
+
+
+            if (this.getAttribute('data-isRightAnswer') == "True") {
+                $('#trueOrNot').text("Great! Right answer.")
+                $('#trueOrNot').addClass("right_answer")
+            }
+            else {
+                $('#trueOrNot').text("Oops! Wrong answer.")
+                $('#trueOrNot').addClass("wrong_answer")
+            }
+                
+            $('#answerDetails').text(this.getAttribute("data-details"))
+
+            })
+
+    </script>
+}

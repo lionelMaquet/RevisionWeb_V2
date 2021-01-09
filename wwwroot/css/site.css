@@ -113,14 +113,17 @@ body {
     margin-left: 0.7rem;
 }
 
+    .subject_item_first_row a:hover {
+        text-decoration:none;
+    }
 
 
-.list_item {
+    .list_item {
         padding: 1rem 2rem;
         background-color: lightseagreen;
         margin: 0.5rem;
         text-align: center;
-}
+    }
 
     .list_item_link {
         color: white;
@@ -148,6 +151,26 @@ body {
     color: white;
 }
 
+.add_answer_form {
+    display:flex;
+    align-items:center;
+}
+
+.add_answer_form .AddElementButton {
+    margin-left: 5rem;
+    border:none;
+    height: 4rem;
+    padding: 0rem 2rem;
+}
 
 
 
+.right_answer {
+    color: green;
+    font-weight:bold;
+}
+
+.wrong_answer {
+    color: red;
+    font-weight:bold;
+}
