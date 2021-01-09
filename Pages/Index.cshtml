@@ -22,12 +22,25 @@
     else
     {
 
-        <div class="list_container">
+        <div class="list_container subjects_container">
             @foreach (var m in Model.subjects)
             {
-                <div class="list_item">
-                    <a href="/questions?sid=@m.Id">@m.Title</a>
+            <div class="subject_item">
+                <div class="subject_item_first_row">
+                    <h3>@m.Title</h3>
+                    <div>
+                        <a href="/questions?sid=@m.Id">
+                            <!--<img src="~/assets/loupe.png" class="search-base" />-->
+                            <img src="~/assets/loupe-hover.png" class="search-hover" />
+                        </a>
+                        <a>
+                            <!--<img src="~/assets/play-button.png" class="play-base" />-->
+                            <img src="~/assets/play-button-hover.png" class="play-hover" />
+                        </a>
+                    </div>
                 </div>
+                
+            </div>
             }
         </div>
 

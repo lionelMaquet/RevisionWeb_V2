@@ -11,7 +11,7 @@
         @foreach (var q in Model.sub.Questions)
         {
             <div class="list_item">
-                <a href="/answers?qid=@q.Id">@q.Title</a>
+                <a class="list_item_link" href="/answers?qid=@q.Id">@q.Title</a>
             </div>
         }
     </div>
