@@ -21,6 +21,7 @@ namespace RevisionWebV2.Pages
         public Subject subject;
         public bool isOwnUserQuestion = false;
         public int SubjectIdOfCurrentAnswer;
+        public bool shouldShowForm = true;
 
         public AnswersModel(ILogger<IndexModel> logger, ApplicationDbContext db)
         {

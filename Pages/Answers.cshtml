@@ -7,8 +7,6 @@
     <a href="questions?sid=@Model.SubjectIdOfCurrentAnswer">Back to questions</a>
 
     <h2>@Model.question.Title</h2>
-
-
     <div class="answers_container">
         @foreach (var a in Model.question.Answers)
         {
@@ -18,14 +16,12 @@
 
     <div class="details_container">
         <p><span id="trueOrNot"></span> <span id="answerDetails"></span></p>
-        <!--<p id="trueOrNot"></p>
-    <p id="answerDetails"></p>-->
     </div>
 
     
 
 
-    @if (Model.isOwnUserQuestion == true)
+    @if (Model.isOwnUserQuestion == true && Model.shouldShowForm == true)
     {
         <form method="post" class="add_answer_form add_element_form">
 
