@@ -17,13 +17,14 @@
                 <div class="subject_item_first_row">
                     <h3>@m.Title</h3>
                     <div>
+                        @if (m.Questions.Count > 0)
+                        {
+                            <a href="/answers?qid=@m.Questions.First().Id">
+                                <img src="~/assets/play-button-hover.png" class="play-hover" />
+                            </a>
+                        }
                         <a href="/questions?sid=@m.Id">
-                            <!--<img src="~/assets/loupe.png" class="search-base" />-->
                             <img src="~/assets/loupe-hover.png" class="search-hover" />
-                        </a>
-                        <a>
-                            <!--<img src="~/assets/play-button.png" class="play-base" />-->
-                            <img src="~/assets/play-button-hover.png" class="play-hover" />
                         </a>
                     </div>
                 </div>

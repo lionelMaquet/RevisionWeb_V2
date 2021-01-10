@@ -3,9 +3,13 @@
 @{
 }
 
-<div class="center">
-    <a href="questions?sid=@Model.SubjectIdOfCurrentAnswer">Back to questions</a>
+<a href="answers?qid=@Model.previousId">PREVIOUS</a>
+<a href="answers?qid=@Model.nextId">NEXT</a>
 
+<div class="center">
+    <a href="questions?sid=@Model.subject.Id">Back to questions</a>
+
+    <h5>@Model.subject.Title</h5>
     <h2>@Model.question.Title</h2>
     <div class="answers_container">
         @foreach (var a in Model.question.Answers)
@@ -18,7 +22,7 @@
         <p><span id="trueOrNot"></span> <span id="answerDetails"></span></p>
     </div>
 
-    
+
 
 
     @if (Model.isOwnUserQuestion == true && Model.shouldShowForm == true)
@@ -65,10 +69,10 @@
                 $('#trueOrNot').text("Oops! Wrong answer.")
                 $('#trueOrNot').addClass("wrong_answer")
             }
-                
+
             $('#answerDetails').text(this.getAttribute("data-details"))
 
-            })
+        })
 
     </script>
 }

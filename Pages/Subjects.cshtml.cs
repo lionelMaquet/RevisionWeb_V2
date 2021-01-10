@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RevisionWebV2.Data;
 using RevisionWebV2.Data.Models;
@@ -17,6 +18,8 @@ namespace RevisionWebV2.Pages
         public List<Subject> subjects = new List<Subject>();
         public bool isOwnSubjectOwner;
 
+        public int firstQuestionIdOfSubject;
+
         public SubjectsModel(ILogger<SubjectsModel> logger, ApplicationDbContext db)
         {
             _logger = logger;
@@ -26,12 +29,8 @@ namespace RevisionWebV2.Pages
 
         public void OnGet(string username)
         {
-            
-            subjects = _db.Subjects.Where(x => x.OwnerUsername == username).ToList();
-            if (username == User.Identity.Name)
-            {
-                isOwnSubjectOwner = true;
-            }
+            subjects = _db.Subjects.Where(x => x.OwnerUsername == username).Include(x => x.Questions).ToList();
+            isOwnSubjectOwner = username == User.Identity.Name;
         }
 
         public IActionResult OnPost(string title)

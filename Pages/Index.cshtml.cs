@@ -22,7 +22,6 @@ namespace RevisionWebV2.Pages
         {
             _logger = logger;
             this._db = db;
-            
         }
 
         public void OnGet()
@@ -30,21 +29,6 @@ namespace RevisionWebV2.Pages
             subjects = _db.Subjects.Where(x => x.OwnerUsername == User.Identity.Name).ToList();
         }
 
-        public IActionResult OnPost(string title)
-        {
-
-            Subject newSubject = new Subject()
-            {
-                OwnerUsername = User.Identity.Name,
-                Title = title,
-                Questions = new List<Question>()
-            };
-
-            _db.Subjects.Add(newSubject);
-            _db.SaveChanges();
-
-            
-            return Redirect($"/questions?sid={newSubject.Id}"); // Goes to new subject after insert
-        }
+        
     }
 }

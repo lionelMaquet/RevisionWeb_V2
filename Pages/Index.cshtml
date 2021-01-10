@@ -7,10 +7,6 @@
 }
 
 <div class="center">
-
-    <h2>Choose a subject : </h2>
-
-
     @if (!SignInManager.IsSignedIn(User))
     {
         <p>Hello, welcome to ReVision ! </p>
@@ -21,34 +17,8 @@
 
     else
     {
-
-        <div class="list_container subjects_container">
-            @foreach (var m in Model.subjects)
-            {
-            <div class="subject_item">
-                <div class="subject_item_first_row">
-                    <h3>@m.Title</h3>
-                    <div>
-                        <a href="/questions?sid=@m.Id">
-                            <!--<img src="~/assets/loupe.png" class="search-base" />-->
-                            <img src="~/assets/loupe-hover.png" class="search-hover" />
-                        </a>
-                        <a>
-                            <!--<img src="~/assets/play-button.png" class="play-base" />-->
-                            <img src="~/assets/play-button-hover.png" class="play-hover" />
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-            }
-        </div>
-
-
-        <form class="add_element_form" method="post">
-            <input type="text" name="title">
-            <input type="submit" class="AddElementButton" value="Ajouter sujet">
-        </form>
+        <h2>Welcome back @User.Identity.Name !</h2>
+        <a href="/subjects?username=@User.Identity.Name">Go to my subjects</a>
     }
 </div>
 

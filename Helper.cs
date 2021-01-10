@@ -15,7 +15,7 @@ namespace RevisionWeb
 
         static public Subject getSubjectFromQuestionId(ApplicationDbContext db, int questionId)
         {
-            Subject sub = db.Subjects.First(x => x.Questions.Count(x => x.Id == questionId) > 0);
+            Subject sub = db.Subjects.Include(x => x.Questions).First(x => x.Questions.Count(x => x.Id == questionId) > 0);
             return sub;
         }
         static public int getSubjectIdFromQuestionId(ApplicationDbContext db,int questionId)
