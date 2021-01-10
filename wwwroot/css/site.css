@@ -174,3 +174,7 @@ body {
     color: red;
     font-weight:bold;
 }
+
+.details_container {
+    max-width: 40vw;
+}
