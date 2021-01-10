@@ -178,3 +178,7 @@ body {
 .details_container {
     max-width: 40vw;
 }
+
+.previous_question_image, .next_question_image {
+    width: 3rem;
+}
