@@ -16,7 +16,6 @@ namespace RevisionWebV2.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _db;
         public List<Subject> subjects = new List<Subject>();
-        
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext db)
         {
@@ -29,6 +28,5 @@ namespace RevisionWebV2.Pages
             subjects = _db.Subjects.Where(x => x.OwnerUsername == User.Identity.Name).ToList();
         }
 
-        
     }
 }
