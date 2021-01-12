@@ -1,0 +1,16 @@
+﻿@page
+@model RevisionWebV2.Pages.UsersModel
+@{
+}
+
+<div class="center">
+    <h2>Users : </h2>
+    <div class="list_container">
+        @foreach (var u in Model.users)
+        {
+            <div class="list_item">
+                <a class="list_item_link" href="/subjects?username=@u.UserName">@u.UserName</a>
+            </div>
+        }
+    </div>
+</div>
