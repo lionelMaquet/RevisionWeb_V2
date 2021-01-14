@@ -163,6 +163,15 @@ body {
     padding: 0rem 2rem;
 }
 
+.AddElementButton {
+    background-color: lightgrey;
+    border:none;
+}
+
+.AddElementButton:hover {
+    background-color: lightblue;
+}
+
 
 
 .right_answer {
