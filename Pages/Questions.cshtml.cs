@@ -34,10 +34,7 @@ namespace RevisionWebV2.Pages
             sub = _db.Subjects.Where(x => x.Id.ToString() == sid).Include(x => x.Questions).First();
             UsernameOfCurrentQuestion = sub.OwnerUsername;
 
-            if (sub.OwnerUsername == User.Identity.Name)
-            {
-                isOwnUserSubject = true;
-            }
+            isOwnUserSubject = sub.OwnerUsername == User.Identity.Name;
 
         }
 
