@@ -20,6 +20,11 @@
         {
             <button class="answer" data-isRightAnswer='@a.IsRightAnswer' data-details='@a.Details'>@a.Title</button>
         }
+
+        @if (Model.question.Answers.Count == 0)
+        {
+            <p>There's no answer yet. Add one with the buttons below.</p>
+        }
     </div>
 
     <div class="details_container">
