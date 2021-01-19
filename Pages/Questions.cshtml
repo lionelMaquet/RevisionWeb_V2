@@ -16,6 +16,13 @@
                 <a class="list_item_link" href="/answers?qid=@q.Id">@q.Title</a>
             </div>
         }
+
+        @if (Model.sub.Questions.Count == 0)
+        {
+            <p>There's no question yet.</p>
+        }
+
+
     </div>
 
 
