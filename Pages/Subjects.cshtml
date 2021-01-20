@@ -11,31 +11,34 @@
     <h2>Choose a subject : </h2>
 
     <div class="list_container subjects_container">
-        @foreach (var m in Model.subjects)
+        @if (Model.subjects.Count > 0)
         {
-            <div class="subject_item">
-                <div class="subject_item_first_row">
-                    <h3>@m.Title</h3>
-                    <div>
-                        @if (m.Questions.Count > 0)
-                        {
-                            <a href="/answers?qid=@m.Questions.First().Id">
-                                <img src="~/assets/play-button-hover.png" class="play-hover" />
+            @foreach (var m in Model.subjects)
+            {
+                <div class="subject_item">
+                    <div class="subject_item_first_row">
+                        <h3>@m.Title</h3>
+                        <div>
+                            @if (m.Questions.Count > 0)
+                            {
+                                <a href="/answers?qid=@m.Questions.First().Id">
+                                    <img src="~/assets/play-button-hover.png" class="play-hover" />
+                                </a>
+                            }
+                            <a href="/questions?sid=@m.Id">
+                                <img src="~/assets/loupe-hover.png" class="search-hover" />
                             </a>
-                        }
-                        <a href="/questions?sid=@m.Id">
-                            <img src="~/assets/loupe-hover.png" class="search-hover" />
-                        </a>
+                        </div>
                     </div>
+
                 </div>
-
-            </div>
+            }
         }
-
-        @if (Model.subjects.Count == 0)
+        else
         {
             <p>There's no subject yet.</p>
         }
+        
     </div>
 
     @if (Model.isOwnSubjectOwner)

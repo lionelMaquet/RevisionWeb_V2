@@ -16,12 +16,14 @@
     <h5>@Model.subject.Title</h5>
     <h2>@Model.question.Title</h2>
     <div class="answers_container">
-        @foreach (var a in Model.question.Answers)
+        @if (Model.question.Answers.Count > 0)
         {
-            <button class="answer" data-isRightAnswer='@a.IsRightAnswer' data-details='@a.Details'>@a.Title</button>
+            @foreach (var a in Model.question.Answers)
+            {
+                <button class="answer" data-isRightAnswer='@a.IsRightAnswer' data-details='@a.Details'>@a.Title</button>
+            }
         }
-
-        @if (Model.question.Answers.Count == 0)
+        else
         {
             <p>There's no answer yet.</p>
         }
