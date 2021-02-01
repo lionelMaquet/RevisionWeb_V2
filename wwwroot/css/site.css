@@ -71,7 +71,7 @@ body {
 }
 
 
-/**/
+/* MY CUSTOM CSS */
 
 .center {
     display: flex;
@@ -125,10 +125,10 @@ body {
      text-align: center;
 }
 
-.list_item_link {
-     color: white;
-     font-size: 1.5rem;
-}
+    .list_item_link {
+         color: white;
+         font-size: 1.5rem;
+    }
 
 .answer {
     padding: 1rem;
@@ -140,13 +140,13 @@ body {
     border-color: lightblue;
 }
 
+    .answer:hover {
+        background-color: cadetblue;
+        color: white;
+    }
+
 .add_element_form {
     margin-top: 5rem;
-}
-
-.answer:hover {
-    background-color: cadetblue;
-    color: white;
 }
 
 .add_answer_form {
@@ -154,12 +154,12 @@ body {
     align-items:center;
 }
 
-.add_answer_form .AddElementButton {
-    margin-left: 5rem;
-    border:none;
-    height: 4rem;
-    padding: 0rem 2rem;
-}
+    .add_answer_form .AddElementButton {
+        margin-left: 5rem;
+        border:none;
+        height: 4rem;
+        padding: 0rem 2rem;
+    }
 
 .AddElementButton {
     background-color: lightgrey;
