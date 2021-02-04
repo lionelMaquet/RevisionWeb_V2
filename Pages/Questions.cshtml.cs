@@ -35,7 +35,6 @@ namespace RevisionWebV2.Pages
             UsernameOfCurrentQuestion = sub.OwnerUsername;
 
             isOwnUserSubject = sub.OwnerUsername == User.Identity.Name;
-
         }
 
         public IActionResult OnPost(string sid, string title)
